@@ -7,16 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class package WO10Modemy;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class demoQAActionsKeyboardEvents {
     private WebDriver driver;
@@ -38,7 +28,6 @@ public class demoQAActionsKeyboardEvents {
 
     }
 
-
     @Test
     public void testToolTipAsAttribute() {
     }
@@ -47,5 +36,4 @@ public class demoQAActionsKeyboardEvents {
     public void after (){
 //    driver.quit();
     }
-} {
 }
