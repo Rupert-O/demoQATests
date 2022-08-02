@@ -1,11 +1,16 @@
 package WO10Modemy;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 
 public class demoQAActionsKeyboardEvents {
@@ -30,6 +35,26 @@ public class demoQAActionsKeyboardEvents {
 
     @Test
     public void testToolTipAsAttribute() {
+        driver.get("https://demoqa.com/text-box");
+        Actions actions = new Actions(driver);
+        WebElement currAddress = driver.findElement(By.id("currentAddress"));
+        WebElement permAddress = driver.findElement(By.id("permanentAddress"));
+
+        currAddress.sendKeys("fwfwfw\newrwertetwqe\n\nrrrweqeq");
+//      CTRL + A -> CTRL + C
+        actions.keyDown(Keys.CONTROL);//dla keyDown dozwolone sa tylko Keys.CONTROL, Keys.SHIFT i Keys.ALT
+        actions.sendKeys("a");
+        actions.sendKeys("c");
+        actions.keyUp(Keys.CONTROL);
+        actions.build().perform();
+
+        actions.keyDown(permAddress, Keys.CONTROL);
+        actions.sendKeys("v");
+        actions.keyUp(Keys.CONTROL);
+        actions.build().perform();
+
+        Assert.assertEquals("Content of fields mismatched", currAddress.getAttribute("value"), permAddress.getAttribute("value"));
+        System.out.print("Current Address field:\n" + currAddress.getAttribute("value") + "\n" + "-----------------------------------------" + "\n" + "Permanent Address field:\n" + permAddress.getAttribute("value"));
     }
 
     @After
