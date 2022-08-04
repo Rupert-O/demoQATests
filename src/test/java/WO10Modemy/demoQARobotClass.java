@@ -1,6 +1,7 @@
 package WO10Modemy;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,8 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.awt.Robot;
+import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class demoQARobotClass {
 
@@ -32,7 +35,7 @@ public class demoQARobotClass {
 
     }
     @Test
-    public void test(){
+    public void test() throws AWTException, InterruptedException {
         Robot robot = new Robot(); //tworzymy obiekt robot z klasy robot
 
         String URL = "https://www.filemail.com/pl/share/upload-file";
@@ -40,8 +43,35 @@ public class demoQARobotClass {
         WebElement upload = driver.findElement(By.id("addBtn"));
         upload.click();
         //https://docs.oracle.com/javase/10/docs/api/java/awt/Robot.html
+        try{
+            Thread.sleep(1000);
+            }
+        catch(InterruptedException e){
+            }
+
         robot.keyPress(KeyEvent.VK_4);
 
+        try{
+            Thread.sleep(1000);
+            }
+        catch(InterruptedException e){
+            }
+
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyRelease(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        //Even though Robot class specifies to follow keyRelease for each keyPress event, Alphabets and numbers don't have any side effects on the next statements.
+        //On the other hand, all the modifier keys such as SHIFT, ALT, etc. will always have a side effect on the next statements. As a result, it is still mandatory to specify keyRelease for each keyPress event of the modifier keys.
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException e){
+        }
+
+        WebElement t = driver.findElement(By.xpath("//div[@class='name-holder ng-binding']"));
+        Assert.assertEquals("File name mismatched", "43508899.txt", t.getText());
+//        System.out.print(t.getText());
 
     }
     @After

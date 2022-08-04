@@ -47,11 +47,7 @@ public class demoQATest {
         //Scroluje o 550 pikseli w dół i 0 w lewo
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("window.scrollBy(0,550)");
-//    try{
-//        Thread.sleep(1000);
-//    }
-//    catch(InterruptedException e){
-//    }
+//
         submmitButton.click();
     }
 @After
