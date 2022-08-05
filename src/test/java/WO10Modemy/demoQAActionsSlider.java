@@ -22,6 +22,7 @@ public class demoQAActionsSlider {
         options.addArguments("ignore-certificate-errors");//self-described
         options.addArguments("ignore-ssl-errors");
         options.addArguments("--start-maximized");
+        options.addArguments("headless");//pozwala uruchamiac przegladarke w trybie non-GUI  ->  A headless browser is a browser simulation program that does not have a user interface.
         //PONIZSZY ARGUMENT URUCHAMIA uBLOCK ORIGIN
         options.addArguments("--load-extension=" + "C:\\Users\\Robert\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\cjpalhdlnbpafiamejdnhcphjbkeiagm\\1.43.0_49");
 
