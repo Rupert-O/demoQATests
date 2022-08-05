@@ -47,7 +47,7 @@ public class AddingNewModem {
         login.sendKeys("01Z00351");
 
         WebElement password = driver.findElement(By.name("j_password"));
-        password.sendKeys("energa2!");
+        password.sendKeys("");
 
         WebElement logInButton = driver.findElement(By.id("submitBtn"));
         logInButton.click();
