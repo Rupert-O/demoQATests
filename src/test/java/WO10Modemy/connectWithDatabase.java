@@ -24,7 +24,7 @@ public class connectWithDatabase {
         Connection sql = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
         Statement stmt = sql.createStatement();
         ResultSet result = stmt.executeQuery("SELECT * FROM ACQ_TASK at2 WHERE ERR_CODE IN (18, 19)");
-        System.out.print(result.getInt());
+//        System.out.print(result.getInt());
 
     }
 
