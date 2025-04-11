@@ -24,6 +24,7 @@ public class allLinksOnWebpage {
         options.addArguments("ignore-certificate-errors");//self-described
         options.addArguments("ignore-ssl-errors");
         options.addArguments("--headless");//run test without opening browser window
+        options.addArguments("--remote-allow-origins=*");//added to avoid issue org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:50499/devtools/browser/cc27ed5e-dbe2-4bb0-a690-3d976e8312ec
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
         driver = new ChromeDriver(options);
@@ -35,7 +36,7 @@ public class allLinksOnWebpage {
     public void test(){
         driver.get(URL2);
         List<WebElement> linki = driver.findElements(By.tagName("a"));
-        System.out.print(linki.size());
+        System.out.print("Found " + linki.size() + " links");
 
         for (int i = 0; i< linki.size(); i++) {
             System.out.print("\n" + i + ". " + linki.get(i).getText() + " " + linki.get(i).getAttribute("href"));
