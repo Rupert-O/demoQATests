@@ -28,6 +28,7 @@ public class demoQARadioButton {
         options.addArguments("--disable-dev-shm-usage");// overcome limited resource problems
         options.addArguments("ignore-certificate-errors");//self-described
         options.addArguments("ignore-ssl-errors");
+        options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
